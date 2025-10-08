@@ -9,6 +9,8 @@ import time
 import argparse
 import function.helper as helper
 
+ESP32_IP = "http://192.168.1.100"
+
 # load model
 yolo_LP_detect = torch.hub.load('yolov5', 'custom', path='model/LP_detector_nano_61.pt', force_reload=True, source='local')
 yolo_license_plate = torch.hub.load('yolov5', 'custom', path='model/LP_ocr_nano_62.pt', force_reload=True, source='local')
@@ -17,7 +19,7 @@ yolo_license_plate.conf = 0.60
 prev_frame_time = 0
 new_frame_time = 0
 
-vid = cv2.VideoCapture(1)
+vid = cv2.VideoCapture(ESP32_IP)
 # vid = cv2.VideoCapture("1.mp4")
 while(True):
     ret, frame = vid.read()
