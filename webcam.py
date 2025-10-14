@@ -9,7 +9,7 @@ import time
 import argparse
 import function.helper as helper
 
-ESP32_IP = "http://192.168.1.100"
+ESP32_IP = "http://192.168.5.32:81/stream"
 
 # load model
 yolo_LP_detect = torch.hub.load('yolov5', 'custom', path='model/LP_detector_nano_61.pt', force_reload=True, source='local')
